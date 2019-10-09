@@ -1,20 +1,15 @@
 package com.example.neo4j_example;
 
-import org.neo4j.ogm.annotation.GraphId;
-import org.neo4j.ogm.annotation.NodeEntity;
-import org.neo4j.ogm.annotation.Relationship;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.neo4j.repository.GraphRepository;
 import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
-import org.springframework.stereotype.Repository;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Arrays;
+import java.util.List;
 
 @SpringBootApplication
 @EnableNeo4jRepositories
@@ -53,8 +48,9 @@ public class Neo4jExampleApplication {
 
             // We already know christine works with amy and ben
 
-            log.info("Lookup each person by name...");
+            log.info("Look up each person by name...");
             team.stream().forEach(person -> log.info(
+                    // "\t" + personRepository.findByName(person.getName()).toString()));
                     "\t" + personRepository.findByName(person.getName()).toString()));
         };
     }
